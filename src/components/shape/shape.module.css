@@ -1,0 +1,305 @@
+/* ── SkewPanel ───────────────────────────────────────────── */
+.panel {
+  position: relative;
+  --panel-skew: 0deg;
+  transform: skewX(var(--panel-skew));
+}
+.panel[data-cut="sm"] {
+  clip-path: var(--clip-cut-sm);
+}
+.panel[data-cut="md"] {
+  clip-path: var(--clip-cut-md);
+}
+.panel[data-cut="lg"] {
+  clip-path: var(--clip-cut-lg);
+}
+.panel[data-cut="xl"] {
+  clip-path: var(--clip-cut-xl);
+}
+.panel[data-cut="card"] {
+  clip-path: var(--clip-card);
+}
+.panel[data-cut="badge"] {
+  clip-path: var(--clip-badge);
+}
+.panel[data-tone="navy"] {
+  background: var(--color-navy);
+  color: var(--color-paper);
+}
+.panel[data-tone="deep"] {
+  background: var(--color-navy-deep);
+  color: var(--color-paper);
+}
+.panel[data-tone="card"] {
+  background: var(--color-card);
+  color: var(--color-cyan-pale);
+}
+.panel[data-tone="paper"] {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.panel[data-tone="ink"] {
+  background: rgb(0 0 0 / 0.92);
+  color: var(--color-paper);
+}
+.panel[data-tone="signal"] {
+  background: var(--color-signal);
+  color: var(--color-paper);
+}
+.panel[data-tone="cyan"] {
+  background: var(--color-cyan-ice);
+  color: var(--color-navy);
+}
+.panel[data-tone="glass"] {
+  background: rgb(8 18 72 / 0.82);
+  color: var(--color-paper);
+  box-shadow: inset 0 0 0 1px rgb(140 239 255 / 0.12);
+}
+.panelInner {
+  transform: skewX(calc(var(--panel-skew) * -1));
+}
+
+/* ── Hard shadows live on a wrapper because clip-path clips box-shadow ── */
+.shadowWrap {
+  position: relative;
+  display: block;
+  isolation: isolate;
+}
+.shadowWrap[data-shadow="red"] > .shadowGhost {
+  background: var(--color-shadow-red);
+  transform: translate(10px, 8px);
+}
+.shadowWrap[data-shadow="navy"] > .shadowGhost {
+  background: rgb(5 13 59 / 0.85);
+  transform: translate(0, 8px);
+}
+.shadowWrap[data-shadow="double"] > .shadowGhost {
+  background: rgb(215 13 44 / 0.82);
+  transform: translate(18px, 0);
+}
+.shadowWrap[data-shadow="double"] > .shadowGhost2 {
+  background: rgb(255 255 255 / 0.26);
+  transform: translate(28px, 0);
+}
+.shadowGhost,
+.shadowGhost2 {
+  position: absolute;
+  inset: 0;
+  clip-path: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── AngledBar (the .sc-bar family) ──────────────────────── */
+.barOuter {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: min(45vw, 720px);
+  transform: translateX(-100%);
+  transition: transform var(--dur-bar) var(--ease-enter);
+  transition-delay: calc(var(--i, 0) * var(--stagger));
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+}
+.barOuter[data-mounted="true"] {
+  transform: translateX(0);
+}
+.barRed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-signal);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, calc(50% - 10px) 100%);
+  transform: translateY(-7px);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-enter);
+  z-index: 0;
+  pointer-events: none;
+}
+.barOuter[data-active="true"] .barRed {
+  opacity: 1;
+}
+.bar {
+  position: relative;
+  display: block;
+  height: 64px;
+  background: #111;
+  clip-path: var(--clip-cut-md);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.65);
+  z-index: 1;
+  transform-origin: left center;
+  transition: transform 0.3s var(--ease-enter);
+}
+.barOuter[data-active="true"] .bar {
+  transform: scaleY(1.4);
+}
+.barContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 24px 0 16px;
+  transform-origin: left center;
+  transition: transform 0.3s var(--ease-enter);
+}
+.barOuter[data-active="true"] .barContent {
+  transform: scaleY(calc(1 / 1.4));
+}
+.bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.55) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+.barFill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  background: var(--color-paper);
+  clip-path: polygon(100% 0, 100% 0, calc(100% - 32px) 100%, calc(100% - 32px) 100%);
+  transition: clip-path 0.35s var(--ease-enter);
+  z-index: 0;
+}
+.barOuter[data-active="true"] .barFill {
+  clip-path: polygon(22% 0, 100% 0, calc(100% - 14px) 100%, calc(22% + 138px) 100%);
+}
+.barShade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 73%;
+  width: 6%;
+  background: linear-gradient(90deg, rgb(0 0 0 / 0.15) 0%, rgb(0 0 0 / 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-enter);
+}
+.barOuter[data-active="true"] .barShade {
+  opacity: 1;
+}
+.barRole {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.2vw, 50px);
+  letter-spacing: -2px;
+  color: var(--color-paper);
+  transform: rotate(-30deg);
+  user-select: none;
+  line-height: 1;
+  padding: 0 8px 0 4px;
+  width: 3ch;
+  text-align: center;
+}
+.barLabel {
+  flex: 1;
+  text-align: center;
+  padding-left: 10%;
+  font-family: var(--font-ui);
+  font-size: clamp(18px, 2vw, 28px);
+  letter-spacing: 4px;
+  line-height: 1;
+  color: rgb(255 255 255 / 0.85);
+  transition: color var(--dur-color) linear;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.barOuter[data-active="true"] .barLabel {
+  color: #111;
+}
+.barRight {
+  flex-shrink: 0;
+  font-family: var(--font-ui);
+  font-size: clamp(16px, 1.6vw, 26px);
+  font-style: italic;
+  letter-spacing: 1px;
+  color: var(--color-paper);
+  transition: color var(--dur-color) linear;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.barOuter[data-active="true"] .barRight {
+  color: #111;
+}
+.barOuter:focus-visible {
+  outline: none;
+}
+.barOuter:focus-visible .bar {
+  box-shadow:
+    0 0 0 3px var(--color-cyan-hot),
+    0 6px 24px rgb(0 0 0 / 0.65);
+}
+
+/* ── OutlineWord ─────────────────────────────────────────── */
+.outline {
+  font-family: var(--font-ui);
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-cyan);
+  paint-order: stroke fill;
+  user-select: none;
+  white-space: nowrap;
+}
+.outline[data-tone="paper"] {
+  -webkit-text-stroke-color: var(--color-paper);
+}
+.outline[data-tone="signal"] {
+  -webkit-text-stroke-color: var(--color-signal-hot);
+}
+.outline[data-tone="faint"] {
+  -webkit-text-stroke-color: rgb(255 255 255 / 0.18);
+}
+
+/* ── SignalStripe ────────────────────────────────────────── */
+.stripe {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--color-signal);
+  z-index: var(--z-hud);
+  pointer-events: none;
+}
+.stripeGhost {
+  position: fixed;
+  right: 9px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgb(245 122 139 / 0.22);
+  z-index: var(--z-hud);
+  pointer-events: none;
+}
+
+/* ── Keycap ──────────────────────────────────────────────── */
+.keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  color: rgb(255 255 255 / 0.75);
+}

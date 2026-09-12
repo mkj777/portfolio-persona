@@ -1,0 +1,61 @@
+/* Design tokens. Tailwind v4 reads @theme, every value is also a plain CSS variable on :root. */
+@theme {
+  /* P3R palette: night blue and ice cyan as surfaces, red only as edge, signal and selection. */
+  --color-ink: #000;
+  --color-paper: #fff;
+  --color-navy: #00184c;
+  --color-navy-deep: #0d1a3a;
+  --color-navy-night: #04060f;
+  --color-card: #10185f;
+  --color-cyan: #3ce2ff;
+  --color-cyan-hot: #00d9ff;
+  --color-cyan-ice: #7dd4fc;
+  --color-cyan-pale: #d2fdff;
+  --color-signal: #c4001a;
+  --color-signal-hot: #ff2a2a;
+  --color-signal-deep: #6b0010;
+  --color-shadow-red: #d63232;
+  --color-pink-glow: rgb(255 100 180 / 0.35);
+  --color-wipe-blue: #0047ff;
+  --color-velvet: #14082e;
+  --color-velvet-deep: #0a0418;
+
+  /* Shapes. The cut always sits bottom right and grows with the element. */
+  --clip-cut-sm: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  --clip-cut-md: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  --clip-cut-lg: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 0 100%);
+  --clip-cut-xl: polygon(0 0, 100% 0, calc(100% - 88px) 100%, 0 100%);
+  --clip-card: polygon(0 0, 97% 0, 100% 100%, 3% 100%);
+  --clip-badge: polygon(14% 0, 100% 0, 84% 100%, 0 100%);
+  --clip-portrait: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+
+  /* Motion. Only two working curves plus pop and reveal. Never ease-in-out. */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-wipe: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-color: 120ms;
+  --dur-micro: 160ms;
+  --dur-shape: 220ms;
+  --dur-pop: 280ms;
+  --dur-enter: 380ms;
+  --dur-bar: 550ms;
+  --dur-wipe: 450ms;
+  --dur-reveal: 1200ms;
+  --stagger: 80ms;
+
+  /* Type */
+  --font-display: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --font-ui: "Bebas Neue", "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", system-ui, sans-serif;
+  --angle-sys: -6deg;
+
+  /* z ladder */
+  --z-bar: 1;
+  --z-screen: 10;
+  --z-menu: 20;
+  --z-hud: 50;
+  --z-wipe: 999;
+
+  --breakpoint-menu: 900px;
+}

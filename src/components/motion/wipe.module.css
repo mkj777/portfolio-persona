@@ -1,0 +1,63 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-wipe);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.layer[data-active="true"] {
+  visibility: visible;
+  opacity: 1;
+}
+.piece {
+  position: fixed;
+  will-change: transform;
+}
+
+/* default: three full blocks growing from the left */
+.block {
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* about: rotated bands with the xl cut */
+.band {
+  height: 26vh;
+  clip-path: var(--clip-cut-xl);
+  transform: rotate(-18deg);
+  transform-origin: left center;
+}
+
+/* socials: skewed vertical stripes */
+.stripe {
+  top: -6vh;
+  height: 112vh;
+  transform: skewX(-16deg);
+  transform-origin: top;
+}
+
+/* resume: cards with the card cut */
+.card {
+  left: -6vw;
+  width: 78vw;
+  height: 14vh;
+  clip-path: var(--clip-card);
+}
+
+/* circle reveal: blue cover with a growing hole in the middle */
+.circle {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-wipe) - 1);
+  pointer-events: none;
+  background: var(--color-wipe-blue);
+  --r: 0px;
+  mask-image: radial-gradient(circle at 50% 50%, transparent var(--r), #000 calc(var(--r) + 1px));
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    transparent var(--r),
+    #000 calc(var(--r) + 1px)
+  );
+}

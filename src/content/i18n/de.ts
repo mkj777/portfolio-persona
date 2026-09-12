@@ -1,0 +1,109 @@
+export const de = {
+  nav: {
+    about: "ABOUT ME",
+    projects: "PROJECTS",
+    skills: "SKILLS",
+    resume: "RESUME",
+    contact: "CONTACT",
+  },
+  menu: {
+    open: "Menü öffnen",
+    close: "Menü schließen",
+    title: "Hauptmenü",
+    trigger: "MENU",
+  },
+  hints: {
+    navigate: "NAVIGIEREN",
+    confirm: "BESTÄTIGEN",
+    back: "ZURÜCK",
+    menu: "MENÜ",
+    select: "WÄHLEN",
+    open: "ÖFFNEN",
+    scroll: "SCROLLEN",
+  },
+  hud: {
+    language: "Sprache wählen",
+    soundOn: "Sound an",
+    soundOff: "Sound aus",
+    skip: "Zum Inhalt springen",
+  },
+  hero: {
+    role: "Softwareentwickler. IT-Spezialist.",
+    projects: "Projekte ansehen",
+    contact: "Kontakt",
+    scroll: "Weiter scrollen",
+    screen: "Title Screen",
+  },
+  about: {
+    title: "Profil",
+    eyebrow: "Erfahrung",
+    at: "bei",
+  },
+  projects: {
+    title: "Projekte",
+    intro:
+      "Drei Produkte, drei Kontexte: Competitive Gaming im Web, eine native Spielebibliothek für Windows und eine produktiv betriebene Tool-Sammlung.",
+    open: "Projekt öffnen",
+    live: "Website öffnen",
+    repo: "Repository",
+    frames: "Ansichten",
+    stage: "Produktansicht",
+    back: "Zurück zu den Projekten",
+    imageError: "Projektbild konnte nicht geladen werden.",
+  },
+  skills: {
+    title: "Kenntnisse",
+    intro: "Technologien und Themen, mit denen ich praktisch gearbeitet habe.",
+    rank: "RANG",
+  },
+  timeline: {
+    title: "Werdegang",
+    intro: "Technische Entwicklung und Stationen, von unten nach oben.",
+    floor: "F",
+    station: "STATION",
+    tech: "TECH",
+  },
+  contact: {
+    title: "Lass uns etwas bauen.",
+    text: "Für Softwareentwicklung, Produktarbeit oder einen Austausch zu Security-Themen bin ich direkt erreichbar.",
+    email: "E-Mail schreiben",
+    phone: "Anrufen",
+    github: "GitHub ansehen",
+    linkedin: "LinkedIn",
+    mailLabel: "E-Mail an {email} senden",
+    phoneLabel: "Maximilian Kielholz unter {phone} anrufen",
+    githubLabel: "GitHub-Profil von {handle} öffnen",
+    footer: "Visual style inspired by JRPG interface design. Not affiliated with Atlus.",
+    signature: "Unterschrift von Maximilian Kielholz",
+  },
+  resume: {
+    title: "Lebenslauf",
+    list: "LIST",
+    cards: {
+      experience: { title: "ERFAHRUNG", subtitle: "rku.it GmbH · seit 2022" },
+      education: { title: "AUSBILDUNG", subtitle: "FH Dortmund · IHK · RUB" },
+      skills: { title: "SKILLS", subtitle: "7 Gruppen" },
+      languages: { title: "SPRACHEN", subtitle: "Deutsch · Englisch" },
+    },
+    details: "DETAILS",
+    log: "LOG",
+    status: { done: "Abgeschlossen", running: "Laufend", native: "Muttersprache" },
+    download: "CV als PDF",
+    downloadLabel: "Lebenslauf als PDF herunterladen",
+  },
+  notFound: {
+    title: "NOT FOUND",
+    text: "Diese Seite gibt es nicht. Vielleicht war sie nie hier.",
+    back: "Zurück zum Start",
+  },
+  backdrop: {
+    mode: "Hintergrund",
+    generative: "Generativ",
+    video: "Video",
+    hybrid: "Hybrid",
+  },
+};
+
+/* Recursively widen literals so `en` can carry different strings with the same shape. */
+type Widen<T> = T extends string ? string : { readonly [K in keyof T]: Widen<T[K]> };
+export type UiStrings = Widen<typeof de>;

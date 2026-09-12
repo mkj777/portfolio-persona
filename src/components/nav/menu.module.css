@@ -1,0 +1,189 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  --menu-scale: 1;
+}
+@media (max-width: 900px) {
+  .overlay {
+    --menu-scale: 0.62;
+  }
+}
+@media (max-width: 480px) {
+  .overlay {
+    --menu-scale: 0.5;
+  }
+}
+
+.dim {
+  position: absolute;
+  inset: 0;
+  background: rgb(2 4 12 / 0.45);
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+.overlay[data-open="true"] .dim {
+  opacity: 1;
+}
+
+.menu {
+  position: relative;
+  z-index: 2;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: all;
+  list-style: none;
+  margin: 0;
+}
+
+.row {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(36px);
+  transition:
+    opacity 0.38s linear,
+    transform 0.38s var(--ease-enter);
+  transition-delay: 0ms;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.row[data-mounted="true"] {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: calc(var(--i) * var(--stagger));
+}
+.row:focus-visible {
+  outline: none;
+}
+.row:focus-visible .labelDark {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, var(--color-pink-glow) 0%, transparent 70%);
+  filter: blur(18px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+.row[data-active="true"] .glow {
+  opacity: 1;
+}
+
+.skewWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+}
+
+@keyframes shadowPop {
+  0% {
+    transform: translateY(-40%) translateX(-12px) scaleX(0) scaleY(1);
+  }
+  55% {
+    transform: translateY(-46%) translateX(-15px) scaleX(1.22) scaleY(1.18);
+  }
+  75% {
+    transform: translateY(-39%) translateX(-11px) scaleX(0.96) scaleY(0.97);
+  }
+  100% {
+    transform: translateY(-40%) translateX(-12px) scaleX(1) scaleY(1);
+  }
+}
+
+.shadowTri {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: left center;
+  background: rgb(235 80 120 / 0.85);
+  z-index: 1;
+  pointer-events: none;
+  transform: translateY(-40%) translateX(-12px) scaleX(0);
+  transition: transform 0.18s var(--ease-enter);
+}
+.shadowTri[data-pop="true"] {
+  animation: shadowPop var(--dur-pop) var(--ease-pop) forwards;
+}
+
+.highlight {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: left center;
+  background: var(--color-paper);
+  z-index: 2;
+  transition: transform var(--dur-shape) var(--ease-enter);
+  pointer-events: none;
+}
+
+.labelWrap {
+  position: relative;
+  z-index: 3;
+  padding: 0 40px;
+  transition: opacity 0.2s linear;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 2px;
+  line-height: 0.85;
+  display: block;
+  white-space: nowrap;
+  user-select: none;
+  font-size: calc(var(--fs) * 1px * var(--menu-scale));
+}
+
+.labelDark {
+  color: var(--color-cyan);
+  transition: color var(--dur-color) linear;
+}
+.row[data-active="true"] .labelDark {
+  color: var(--color-signal-deep);
+}
+.row:hover:not([data-active="true"]) .labelDark {
+  color: var(--color-cyan-hot);
+}
+
+.labelBright {
+  color: var(--color-signal-hot);
+  position: absolute;
+  inset: 0;
+  padding: 0 40px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity var(--dur-color) linear;
+}
+.row[data-active="true"] .labelBright {
+  opacity: 1;
+}
+
+.title {
+  position: absolute;
+  left: -9999px;
+}

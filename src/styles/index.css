@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./base.css";
+@import "./textures.css";
+
+@custom-variant hover (&:hover);

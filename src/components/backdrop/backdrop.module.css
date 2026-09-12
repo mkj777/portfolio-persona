@@ -1,0 +1,121 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--color-navy-night);
+  pointer-events: none;
+  transition: background 0.6s linear;
+}
+.root[data-scene="contact"] {
+  background: var(--color-velvet-deep);
+}
+
+.sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 140vmax;
+  height: 140vmax;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #0d2560 0%, #060d2a 60%, transparent 100%);
+  transition: opacity 0.6s linear;
+}
+.root[data-scene="contact"] .sun {
+  background: radial-gradient(circle, #2a1360 0%, #0c0520 60%, transparent 100%);
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgb(0 0 0 / 0.07) 3px 4px);
+  mix-blend-mode: multiply;
+}
+
+.word {
+  position: absolute;
+  left: -2vw;
+  bottom: -2vh;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(140px, 22vw, 300px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: rgb(255 255 255 / 0.025);
+  user-select: none;
+  white-space: nowrap;
+  transform: rotate(var(--angle-sys));
+  transition: opacity 0.4s linear;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s linear;
+}
+.canvas[data-ready="true"] {
+  opacity: 1;
+}
+.canvas canvas {
+  width: 100%;
+  height: 100%;
+}
+.root[data-mode="hybrid"] .canvas {
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.root[data-mode="hybrid"] .canvas[data-ready="true"] {
+  opacity: 0.55;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s linear;
+}
+.video[data-ready="true"] {
+  opacity: 1;
+}
+
+.mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgb(4 6 15 / 0.85) 0%,
+    rgb(4 6 15 / 0.4) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s linear;
+}
+.root[data-mode="video"] .mask,
+.root[data-mode="hybrid"] .mask {
+  opacity: 1;
+}
+
+.splash {
+  position: absolute;
+  right: -10vw;
+  top: 8vh;
+  width: 62vmin;
+  height: 62vmin;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  transform: rotate(12deg);
+}
+.splash path {
+  fill: var(--color-cyan);
+  transition: fill 0.6s linear;
+}
+.root[data-scene="contact"] .splash path {
+  fill: #b48cff;
+}
+.root[data-scene="menu"] .splash path {
+  fill: var(--color-signal-hot);
+}
