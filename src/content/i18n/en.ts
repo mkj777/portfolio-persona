@@ -42,6 +42,7 @@ export const en: UiStrings = {
     at: "at",
   },
   projects: {
+    kicker: "Selected work",
     title: "Projects",
     intro:
       "Three products, three contexts: competitive gaming on the web, a native game library for Windows and a production tool collection.",
@@ -54,6 +55,7 @@ export const en: UiStrings = {
     imageError: "The project image could not be loaded.",
   },
   skills: {
+    kicker: "Toolbox",
     title: "Skills",
     intro: "Technologies and subjects I have worked with in practice.",
     rank: "RANK",
@@ -66,6 +68,7 @@ export const en: UiStrings = {
     tech: "TECH",
   },
   contact: {
+    kicker: "Contact",
     title: "Let's build something.",
     text: "For software development, product work or a conversation about security, you can reach me directly.",
     email: "Write an email",

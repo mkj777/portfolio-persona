@@ -71,7 +71,7 @@ export function Contact() {
       className={`${styles.section} ${styles.contact}`}
       data-scene="contact"
     >
-      <Kicker>{ui.nav.contact}</Kicker>
+      <Kicker>{ui.contact.kicker}</Kicker>
       <SplitReveal as="h2" className={styles.contactTitle} text={ui.contact.title} type="lines" />
       <SplitReveal as="p" className={styles.contactText} text={ui.contact.text} delay={0.15} />
       <ul className={styles.contactGrid}>

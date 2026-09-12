@@ -70,7 +70,7 @@ export function Projects() {
         {ui.projects.title}
       </span>
       <div className={styles.sectionHead}>
-        <Kicker>{ui.nav.projects}</Kicker>
+        <Kicker>{ui.projects.kicker}</Kicker>
         <Heading>{ui.projects.title}</Heading>
         <SplitReveal as="p" className={styles.intro} text={ui.projects.intro} />
       </div>

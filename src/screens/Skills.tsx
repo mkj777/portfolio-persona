@@ -36,7 +36,7 @@ export function Skills() {
         {ui.skills.title}
       </span>
       <div className={styles.sectionHead}>
-        <Kicker>{ui.nav.skills}</Kicker>
+        <Kicker>{ui.skills.kicker}</Kicker>
         <Heading>{ui.skills.title}</Heading>
         <SplitReveal as="p" className={styles.intro} text={ui.skills.intro} />
       </div>

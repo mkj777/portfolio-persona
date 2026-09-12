@@ -37,7 +37,7 @@ export function Scramble({
 
   return (
     <span {...rest}>
-      <span ref={ref} aria-hidden="true">
+      <span key={text} ref={ref} aria-hidden="true">
         {text}
       </span>
       <span className="sr-only">{text}</span>

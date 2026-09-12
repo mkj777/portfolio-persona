@@ -1,10 +1,10 @@
 export const de = {
   nav: {
-    about: "ABOUT ME",
-    projects: "PROJECTS",
+    about: "ÜBER MICH",
+    projects: "PROJEKTE",
     skills: "SKILLS",
-    resume: "RESUME",
-    contact: "CONTACT",
+    resume: "LEBENSLAUF",
+    contact: "KONTAKT",
   },
   menu: {
     open: "Menü öffnen",
@@ -40,6 +40,7 @@ export const de = {
     at: "bei",
   },
   projects: {
+    kicker: "Ausgewählte Arbeiten",
     title: "Projekte",
     intro:
       "Drei Produkte, drei Kontexte: Competitive Gaming im Web, eine native Spielebibliothek für Windows und eine produktiv betriebene Tool-Sammlung.",
@@ -52,6 +53,7 @@ export const de = {
     imageError: "Projektbild konnte nicht geladen werden.",
   },
   skills: {
+    kicker: "Werkzeugkasten",
     title: "Kenntnisse",
     intro: "Technologien und Themen, mit denen ich praktisch gearbeitet habe.",
     rank: "RANG",
@@ -64,6 +66,7 @@ export const de = {
     tech: "TECH",
   },
   contact: {
+    kicker: "Kontakt",
     title: "Lass uns etwas bauen.",
     text: "Für Softwareentwicklung, Produktarbeit oder einen Austausch zu Security-Themen bin ich direkt erreichbar.",
     email: "E-Mail schreiben",
@@ -73,12 +76,12 @@ export const de = {
     mailLabel: "E-Mail an {email} senden",
     phoneLabel: "Maximilian Kielholz unter {phone} anrufen",
     githubLabel: "GitHub-Profil von {handle} öffnen",
-    footer: "Visual style inspired by JRPG interface design. Not affiliated with Atlus.",
+    footer: "Visueller Stil inspiriert von JRPG-Interface-Design. Nicht mit Atlus verbunden.",
     signature: "Unterschrift von Maximilian Kielholz",
   },
   resume: {
     title: "Lebenslauf",
-    list: "LIST",
+    list: "LISTE",
     cards: {
       experience: { title: "ERFAHRUNG", subtitle: "rku.it GmbH · seit 2022" },
       education: { title: "AUSBILDUNG", subtitle: "FH Dortmund · IHK · RUB" },

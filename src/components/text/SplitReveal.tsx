@@ -60,8 +60,9 @@ export function SplitReveal<T extends ElementType = "p">({
     { scope: ref, dependencies: [text, type, trigger, delay, stagger, yPercent] },
   );
 
+  /* SplitText replaces the text node, so a new text needs a fresh element, not a React update. */
   return (
-    <Comp ref={ref} className={className} {...rest}>
+    <Comp key={text} ref={ref} className={className} {...rest}>
       {text}
     </Comp>
   );
