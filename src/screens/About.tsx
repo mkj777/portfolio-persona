@@ -107,7 +107,7 @@ export function About() {
         <div className={styles.revealPanel} id={`about-panel-${pillar?.id}`} role="tabpanel">
           <div className={styles.revealInner} key={pillar?.id}>
             <span className={styles.revealMeta}>
-              {experience.company} · {experience.location} · {t(experience.period)}
+              {experience.company}, {experience.location}, {t(experience.period)}
             </span>
             <h3 className={styles.revealTitle}>{pillar ? t(pillar.title) : ""}</h3>
             <p className={styles.revealIntro}>{t(experience.intro)}</p>

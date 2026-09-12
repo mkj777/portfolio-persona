@@ -1,33 +1,14 @@
-import { useRef, useState } from "react";
-import signature from "@/assets/signature.png";
 import { SplitReveal } from "@/components/text/SplitReveal";
 import { Kicker } from "@/components/ui/Button";
 import { profile } from "@/content/profile";
 import { socials } from "@/content/socials";
 import { sfx } from "@/lib/audio";
 import { useI18n } from "@/lib/i18n";
-import { ScrollTrigger, useGSAP } from "@/lib/motion";
 import styles from "./screens.module.css";
 
 /* Velvet Room: palette shifts to violet, motion calms down, one centered focus. */
 export function Contact() {
   const { t, ui, fill } = useI18n();
-  const root = useRef<HTMLElement>(null);
-  const [signed, setSigned] = useState(false);
-
-  useGSAP(
-    () => {
-      const el = root.current;
-      if (!el) return;
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 45%",
-        once: true,
-        onEnter: () => setSigned(true),
-      });
-    },
-    { scope: root },
-  );
 
   const actions: Array<{ id: string; label: string; value: string; href: string; aria: string }> = [
     {
@@ -65,12 +46,7 @@ export function Contact() {
   }
 
   return (
-    <section
-      ref={root}
-      id="contact"
-      className={`${styles.section} ${styles.contact}`}
-      data-scene="contact"
-    >
+    <section id="contact" className={`${styles.section} ${styles.contact}`} data-scene="contact">
       <Kicker>{ui.contact.kicker}</Kicker>
       <SplitReveal as="h2" className={styles.contactTitle} text={ui.contact.title} type="lines" />
       <SplitReveal as="p" className={styles.contactText} text={ui.contact.text} delay={0.15} />
@@ -95,18 +71,8 @@ export function Contact() {
           </li>
         ))}
       </ul>
-      <img
-        className={styles.signature}
-        data-in={signed}
-        src={signature}
-        width={1428}
-        height={288}
-        alt={ui.contact.signature}
-        loading="lazy"
-        decoding="async"
-      />
       <p className={styles.footerNote}>
-        {t(profile.location)} · {ui.contact.footer}
+        {t(profile.location)}. {ui.contact.footer}
       </p>
     </section>
   );

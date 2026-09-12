@@ -5,24 +5,24 @@ export const education: EducationEntry[] = [
     period: { de: "Seit 2022", en: "Since 2022" },
     institution: { de: "Fachhochschule Dortmund", en: "Dortmund University of Applied Sciences" },
     detail: {
-      de: "Informatik Dual · Schwerpunkt Softwaretechnik",
-      en: "Dual Computer Science · Software Engineering",
+      de: "Informatik Dual, Schwerpunkt Softwaretechnik",
+      en: "Dual Computer Science, focus on Software Engineering",
     },
   },
   {
     period: { de: "2022–2025", en: "2022–2025" },
     institution: { de: "FH Dortmund / TBS1 Bochum", en: "FH Dortmund / TBS1 Bochum" },
     detail: {
-      de: "Fachinformatiker für Anwendungsentwicklung (IHK) · abgeschlossen",
-      en: "IT Specialist for Application Development (IHK) · completed",
+      de: "Fachinformatiker für Anwendungsentwicklung (IHK), abgeschlossen",
+      en: "IT Specialist for Application Development (IHK), completed",
     },
   },
   {
     period: { de: "2020–2021", en: "2020–2021" },
     institution: { de: "Ruhr-Universität Bochum", en: "Ruhr University Bochum" },
     detail: {
-      de: "Informatik · Bachelor-Grundlagen",
-      en: "Computer Science · bachelor-level foundations",
+      de: "Informatik, Bachelor-Grundlagen",
+      en: "Computer Science, bachelor-level foundations",
     },
   },
   {

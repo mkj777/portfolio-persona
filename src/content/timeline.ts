@@ -55,8 +55,8 @@ export const timeline: TimelineEntry[] = [
     kind: "station",
     title: { de: "Ruhr-Universität Bochum", en: "Ruhr University Bochum" },
     detail: {
-      de: "Informatik · Bachelor-Grundlagen",
-      en: "Computer Science · bachelor-level foundations",
+      de: "Informatik, Bachelor-Grundlagen",
+      en: "Computer Science, bachelor-level foundations",
     },
   },
   {

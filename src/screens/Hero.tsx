@@ -13,7 +13,7 @@ import styles from "./screens.module.css";
  * stripe, backdrop, name, role, buttons, hints. 1.4 s total.
  */
 export function Hero() {
-  const { t, ui, lang } = useI18n();
+  const { t, list, ui, lang } = useI18n();
   const scroll = useScroll();
   const introDone = useApp((s) => s.introDone);
   const root = useRef<HTMLElement>(null);
@@ -115,12 +115,9 @@ export function Hero() {
           {t(profile.heroText)}
         </p>
         <div className={styles.heroTags} data-beat>
-          {t(profile.availability)
-            .split("·")
-            .map((s) => s.trim())
-            .map((s) => (
-              <Tag key={s}>{s}</Tag>
-            ))}
+          {list(profile.availability).map((s) => (
+            <Tag key={s}>{s}</Tag>
+          ))}
         </div>
         <div className={styles.heroActions} data-beat>
           <Button

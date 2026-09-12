@@ -78,8 +78,8 @@ export function Timeline() {
       <div className={styles.tower}>
         <div className={styles.towerSticky} aria-live="polite" aria-atomic="true">
           <span className={styles.floorLabel}>
-            {current?.kind === "station" ? ui.timeline.station : ui.timeline.tech} · {active + 1}/
-            {total}
+            {current?.kind === "station" ? ui.timeline.station : ui.timeline.tech}{" "}
+            {String(active + 1).padStart(2, "0")}/{total}
           </span>
           <span className={styles.floorNumber}>
             {ui.timeline.floor}
@@ -118,16 +118,19 @@ export function Timeline() {
           </svg>
           <ol className={styles.floors} data-floors>
             {timeline.map((entry, i) => (
-              <li key={entry.sortKey} className={styles.floor} data-floor data-kind={entry.kind}>
-                <span className={styles.floorNo} aria-hidden="true">
-                  {ui.timeline.floor}
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+              <li
+                key={entry.sortKey}
+                className={styles.floor}
+                data-floor
+                data-kind={entry.kind}
+                data-active={active === i}
+              >
                 <SkewPanel
                   cut={entry.kind === "station" ? "xl" : "lg"}
                   tone={entry.kind === "station" ? "deep" : "glass"}
                   skew={-4}
                   shadow={entry.kind === "station" ? "red" : "none"}
+                  className={styles.floorSurface}
                   innerClassName={styles.floorPanel}
                 >
                   <span className={styles.floorDate}>{entry.date}</span>

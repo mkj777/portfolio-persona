@@ -14,14 +14,14 @@ export const projects: Project[] = [
     slug: "hubris",
     index: "01",
     title: "hubris.gg",
-    kind: { de: "Webanwendung · League of Legends", en: "Web application · League of Legends" },
+    kind: { de: "Webanwendung für League of Legends", en: "Web app for League of Legends" },
     description: {
       de: "Ein League-of-Legends-Profiltracker mit Fokus auf eine moderne und präzise Darstellung der Informationen, die Spieler für ihre Verbesserung benötigen.",
       en: "A League of Legends profile tracker focused on presenting the information players need to improve with clarity and precision.",
     },
     tech: [
-      "Frontend · React · TypeScript · shadcn/ui",
-      "Backend · Express · TypeScript · PostgreSQL · Drizzle ORM",
+      "Frontend: React, TypeScript, shadcn/ui",
+      "Backend: Express, TypeScript, PostgreSQL, Drizzle ORM",
     ],
     tags: ["React", "TypeScript", "Express", "PostgreSQL"],
     alt: {
@@ -55,12 +55,12 @@ export const projects: Project[] = [
     slug: "codec",
     index: "02",
     title: "CODEC",
-    kind: { de: "Windows Desktop · WinUI 3", en: "Windows desktop · WinUI 3" },
+    kind: { de: "Windows-Desktop-App mit WinUI 3", en: "Windows desktop app with WinUI 3" },
     description: {
       de: "Eine Spielebibliothek für Windows, die installierte Spiele, Integrationen und Metadaten bündelt und Installation sowie Start inklusive eigener Launch-Skripte ermöglicht.",
       en: "A Windows game library that combines installed games, integrations and metadata, and supports installation and launching through custom launch scripts.",
     },
-    tech: [".NET · WinUI 3 · Windows"],
+    tech: [".NET, WinUI 3, Windows"],
     tags: [".NET", "WinUI 3", "C#"],
     alt: {
       de: "Ansicht der CODEC Windows-Spielebibliothek",
@@ -88,12 +88,15 @@ export const projects: Project[] = [
     slug: "pathoftools",
     index: "03",
     title: "pathoftools.app",
-    kind: { de: "Webanwendung · Path of Exile", en: "Web application · Path of Exile" },
+    kind: { de: "Webanwendung für Path of Exile", en: "Web app for Path of Exile" },
     description: {
       de: "Produktiv betriebene Tool-Sammlung für Path of Exile mit Anbindung externer Preis-APIs, täglichen Daten-Snapshots und ISR-Caching.",
       en: "A production tool collection for Path of Exile with external price APIs, daily data snapshots and ISR caching.",
     },
-    tech: ["Next.js · TypeScript · Vercel", "Externe Preis-APIs · Daten-Snapshots · ISR"],
+    tech: [
+      "Next.js, TypeScript, Vercel",
+      "Externe Preis-APIs, tägliche Daten-Snapshots, ISR-Caching",
+    ],
     tags: ["Next.js", "TypeScript", "Vercel"],
     alt: {
       de: "Ansicht der Path-of-Exile-Tool-Sammlung pathoftools.app",

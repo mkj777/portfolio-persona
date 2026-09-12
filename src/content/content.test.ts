@@ -65,4 +65,19 @@ describe("content schema", () => {
         : typeof o;
     expect(shape(en)).toEqual(shape(de));
   });
+  it("copy uses neither middle dots nor em dashes", () => {
+    /* Both read as machine-written. Lists are comma separated, prose is rephrased. */
+    const strings = (o: unknown): string[] =>
+      typeof o === "string"
+        ? [o]
+        : o && typeof o === "object"
+          ? Object.values(o as Record<string, unknown>).flatMap(strings)
+          : [];
+    const sources = { profile, projects, experience, education, skills, timeline, socials, de, en };
+    for (const [name, source] of Object.entries(sources)) {
+      for (const value of strings(source)) {
+        expect(value, `${name}: ${value}`).not.toMatch(/[\u00b7\u2014]/u);
+      }
+    }
+  });
 });

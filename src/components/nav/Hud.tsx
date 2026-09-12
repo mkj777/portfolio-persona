@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import { useWipe } from "@/components/motion/PageWipe";
 import { Keycap } from "@/components/shape/Keycap";
 import { LANGUAGES } from "@/content/languages";
-import { profile } from "@/content/profile";
 import { sfx, useSfxMuted } from "@/lib/audio";
 import { useI18n } from "@/lib/i18n";
 import { appStore, useApp } from "@/lib/store";
@@ -74,29 +71,8 @@ function MenuTrigger() {
 }
 
 export function Hud() {
-  const { wipeTo } = useWipe();
-  const location = useLocation();
   return (
     <>
-      <a
-        className={styles.nameTag}
-        href="/"
-        aria-label={profile.name}
-        onClick={(e) => {
-          e.preventDefault();
-          sfx.play("confirm");
-          if (location.pathname === "/") {
-            appStore.set({ menuOpen: false });
-            wipeTo("/", { variant: "default" });
-          } else {
-            wipeTo("/", { variant: "default" });
-          }
-        }}
-      >
-        <span aria-hidden="true">{profile.wordmark}</span>
-        <small aria-hidden="true">PORTFOLIO</small>
-        <span className="sr-only">{profile.name}</span>
-      </a>
       <div className={styles.controls}>
         <LangToggle />
         <SoundToggle />

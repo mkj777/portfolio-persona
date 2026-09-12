@@ -91,7 +91,7 @@ export function Resume() {
           })),
           bullets: [
             t(experience.intro),
-            `${t(experience.periodLabel)}: ${t(experience.period)} · ${experience.location}`,
+            `${t(experience.periodLabel)}: ${t(experience.period)}, ${experience.location}`,
           ],
         };
       case "education":

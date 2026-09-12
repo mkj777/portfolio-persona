@@ -22,7 +22,7 @@ export const profileSchema = z.object({
   title: localized,
   titleLines: localizedList,
   heroText: localized,
-  availability: localized,
+  availability: localizedList,
   meta: z.object({ title: localized, description: localized }),
   backdropMode: backdropModeSchema,
   cvPath: z.string().startsWith("/"),

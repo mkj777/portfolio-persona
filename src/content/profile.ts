@@ -15,8 +15,8 @@ export const profile: Profile = {
     en: "I develop full-stack web and desktop applications with React, TypeScript and C#/.NET: from architecture and UI to applications for IT security and automated vulnerability management.",
   },
   availability: {
-    de: "Full-Stack · IT-Security · Softwarearchitektur",
-    en: "Full stack · IT security · Software architecture",
+    de: ["Full-Stack", "IT-Security", "Softwarearchitektur"],
+    en: ["Full stack", "IT security", "Software architecture"],
   },
   meta: {
     title: {

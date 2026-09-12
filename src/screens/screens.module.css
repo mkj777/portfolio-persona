@@ -2,7 +2,7 @@
 .section {
   position: relative;
   z-index: var(--z-screen);
-  padding-block: clamp(150px, 20vh, 200px) clamp(80px, 12vh, 140px);
+  padding-block: clamp(110px, 14vh, 150px) clamp(80px, 12vh, 140px);
   padding-inline: clamp(20px, 6vw, 96px);
   overflow: clip;
 }
@@ -645,7 +645,7 @@
   position: relative;
   list-style: none;
   margin: 0;
-  padding: 0 0 0 40px;
+  padding: 0 0 0 24px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -653,10 +653,22 @@
 .floor {
   position: relative;
 }
+.floorSurface {
+  transition: box-shadow var(--dur-shape) var(--ease-enter);
+}
+.floor[data-active="true"] .floorSurface {
+  box-shadow:
+    inset 4px 0 0 var(--color-cyan),
+    inset 0 0 0 1px rgb(140 239 255 / 0.12);
+}
+.floor[data-active="true"][data-kind="station"] .floorSurface {
+  box-shadow: inset 4px 0 0 var(--color-signal-hot);
+}
 .floorPanel {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px 22px;
+  /* Fixed date column so a long range never runs into the title. */
+  grid-template-columns: minmax(7.5ch, max-content) minmax(0, 1fr);
+  gap: 14px 28px;
   align-items: baseline;
   padding: 18px 44px 18px 22px;
 }
@@ -666,7 +678,9 @@
 .floorDate {
   font-family: var(--font-ui);
   font-size: 18px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  /* Letter-spacing trails the last glyph; keep that trail out of the gap. */
+  padding-right: 6px;
   color: var(--color-cyan);
   white-space: nowrap;
 }
@@ -678,6 +692,8 @@
   font-size: clamp(20px, 2vw, 30px);
   line-height: 1;
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
   color: var(--color-paper);
 }
 .floor[data-kind="station"] .floorTitle {
@@ -689,20 +705,6 @@
   font-size: 14px;
   line-height: 1.4;
   color: rgb(255 255 255 / 0.75);
-}
-.floorNo {
-  position: absolute;
-  left: -40px;
-  top: 14px;
-  font-family: var(--font-display);
-  font-size: 16px;
-  color: var(--color-cyan-ice);
-  letter-spacing: 1px;
-  transform: rotate(-90deg);
-  transform-origin: left top;
-}
-.floor[data-kind="station"] .floorNo {
-  color: var(--color-signal-hot);
 }
 .floorKind {
   position: absolute;
@@ -728,14 +730,23 @@
   .floorNumber {
     font-size: 64px;
   }
-  .floors {
-    padding-left: 28px;
+  .floorPanel {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
   }
-  .floorNo {
-    left: -28px;
+  .floorDetail {
+    grid-column: 1;
   }
   .floor[data-kind="station"] .floorPanel {
-    padding-right: 60px;
+    padding-right: 48px;
+  }
+  /* Keeps the longest station word on one line at 390 px; the detail row sits lower,
+     where the diagonal cut eats more width, so it keeps its distance. */
+  .floor[data-kind="station"] .floorTitle {
+    font-size: 22px;
+  }
+  .floor[data-kind="station"] .floorDetail {
+    padding-right: 20px;
   }
 }
 
@@ -831,18 +842,6 @@
 }
 .contactCard:focus-visible {
   outline: none;
-}
-.signature {
-  width: min(360px, 60vw);
-  height: auto;
-  filter: invert(1);
-  mix-blend-mode: screen;
-  opacity: 0.9;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.4s var(--ease-reveal);
-}
-.signature[data-in="true"] {
-  clip-path: inset(0 0 0 0);
 }
 .footerNote {
   font-family: var(--font-ui);

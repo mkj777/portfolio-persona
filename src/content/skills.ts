@@ -5,8 +5,8 @@ export const skills: SkillGroup[] = [
     id: "languages",
     title: { de: "Programmiersprachen", en: "Programming languages" },
     items: {
-      de: ["TypeScript · JavaScript", "HTML · CSS", "C# · Python · Java"],
-      en: ["TypeScript · JavaScript", "HTML · CSS", "C# · Python · Java"],
+      de: ["TypeScript, JavaScript", "HTML, CSS", "C#, Python, Java"],
+      en: ["TypeScript, JavaScript", "HTML, CSS", "C#, Python, Java"],
     },
   },
   {
@@ -14,14 +14,14 @@ export const skills: SkillGroup[] = [
     title: { de: "Frameworks & Libraries", en: "Frameworks & libraries" },
     items: {
       de: [
-        "Node.js · React · Next.js · Express",
-        ".NET · ASP.NET · WinUI 3",
-        "Flutter · React Native · Expo",
+        "Node.js, React, Next.js, Express",
+        ".NET, ASP.NET, WinUI 3",
+        "Flutter, React Native, Expo",
       ],
       en: [
-        "Node.js · React · Next.js · Express",
-        ".NET · ASP.NET · WinUI 3",
-        "Flutter · React Native · Expo",
+        "Node.js, React, Next.js, Express",
+        ".NET, ASP.NET, WinUI 3",
+        "Flutter, React Native, Expo",
       ],
     },
   },
@@ -29,8 +29,8 @@ export const skills: SkillGroup[] = [
     id: "data",
     title: { de: "Datenbanken & Cloud", en: "Databases & cloud" },
     items: {
-      de: ["MySQL · PostgreSQL", "Vercel · Cloudflare", "OpenShift · CI/CD-Pipelines"],
-      en: ["MySQL · PostgreSQL", "Vercel · Cloudflare", "OpenShift · CI/CD pipelines"],
+      de: ["MySQL, PostgreSQL", "Vercel, Cloudflare", "OpenShift, CI/CD-Pipelines"],
+      en: ["MySQL, PostgreSQL", "Vercel, Cloudflare", "OpenShift, CI/CD pipelines"],
     },
   },
   {
@@ -39,12 +39,12 @@ export const skills: SkillGroup[] = [
     items: {
       de: [
         "Automatisierung des Schwachstellenmanagements",
-        "BSI · Tenable · SIEM",
+        "BSI, Tenable, SIEM",
         "Security Operations Center (SOC)",
       ],
       en: [
         "Vulnerability-management automation",
-        "BSI · Tenable · SIEM",
+        "BSI, Tenable, SIEM",
         "Security Operations Center (SOC)",
       ],
     },
@@ -53,16 +53,16 @@ export const skills: SkillGroup[] = [
     id: "tools",
     title: { de: "Tools & Workflow", en: "Tools & workflow" },
     items: {
-      de: ["Git · GitHub · GitLab", "Docker · Podman", "Windows · Linux · Visual Studio · VS Code"],
-      en: ["Git · GitHub · GitLab", "Docker · Podman", "Windows · Linux · Visual Studio · VS Code"],
+      de: ["Git, GitHub, GitLab", "Docker, Podman", "Windows, Linux, Visual Studio, VS Code"],
+      en: ["Git, GitHub, GitLab", "Docker, Podman", "Windows, Linux, Visual Studio, VS Code"],
     },
   },
   {
     id: "design",
     title: { de: "Design & KI", en: "Design & AI" },
     items: {
-      de: ["Figma · UI/UX · App-Konzeption", "AI/LLM-gestützte Entwicklung", "Prompt Engineering"],
-      en: ["Figma · UI/UX · App conception", "AI/LLM-assisted development", "Prompt engineering"],
+      de: ["Figma, UI/UX, App-Konzeption", "AI/LLM-gestützte Entwicklung", "Prompt Engineering"],
+      en: ["Figma, UI/UX, App conception", "AI/LLM-assisted development", "Prompt engineering"],
     },
   },
   {
