@@ -1,15 +1,16 @@
 .nameTag {
   position: fixed;
-  top: 14px;
-  left: 20px;
+  top: clamp(28px, 4vh, 44px);
+  left: clamp(28px, 3vw, 52px);
   z-index: var(--z-hud);
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(40px, 5vw, 72px);
   line-height: 0.88;
   letter-spacing: 2px;
+  /* Pivot bottom left: the tag tilts up to the right and never leaves the edge. */
   transform: rotate(18deg);
-  transform-origin: left top;
+  transform-origin: left bottom;
   user-select: none;
   display: flex;
   flex-direction: column;
