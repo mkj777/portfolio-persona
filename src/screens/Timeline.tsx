@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { OutlineWord } from "@/components/shape/OutlineWord";
 import { SkewPanel } from "@/components/shape/SkewPanel";
-import { Scramble } from "@/components/text/Scramble";
 import { SplitReveal } from "@/components/text/SplitReveal";
 import { Heading, Kicker } from "@/components/ui/Button";
 import { timeline } from "@/content/timeline";
@@ -10,8 +9,9 @@ import { DUR, EASE, gsap, reducedMotion, ScrollTrigger, useGSAP } from "@/lib/mo
 import styles from "./screens.module.css";
 
 /*
- * Tartarus. Floors read chronologically top to bottom, the sticky counter climbs
- * F01 to F17 while a DrawSVG line follows the scroll. Stations are the boss floors.
+ * Tartarus. Floors read chronologically top to bottom, the sticky column shows kind,
+ * index and year of the active floor while a DrawSVG line follows the scroll.
+ * Stations are the boss floors.
  */
 export function Timeline() {
   const { t, ui } = useI18n();
@@ -80,16 +80,6 @@ export function Timeline() {
           <span className={styles.floorLabel}>
             {current?.kind === "station" ? ui.timeline.station : ui.timeline.tech}{" "}
             {String(active + 1).padStart(2, "0")}/{total}
-          </span>
-          <span className={styles.floorNumber}>
-            {ui.timeline.floor}
-            <Scramble
-              key={active}
-              text={String(active + 1).padStart(2, "0")}
-              chars="0123456789"
-              trigger="mount"
-              duration={0.4}
-            />
           </span>
           <OutlineWord
             className={styles.floorYear}

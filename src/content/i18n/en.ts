@@ -63,7 +63,6 @@ export const en: UiStrings = {
   timeline: {
     title: "Path",
     intro: "Technical development and stations, bottom to top.",
-    floor: "F",
     station: "STATION",
     tech: "TECH",
   },

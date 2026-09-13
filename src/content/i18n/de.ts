@@ -61,7 +61,6 @@ export const de = {
   timeline: {
     title: "Werdegang",
     intro: "Technische Entwicklung und Stationen, von unten nach oben.",
-    floor: "F",
     station: "STATION",
     tech: "TECH",
   },

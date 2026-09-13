@@ -621,16 +621,10 @@
   letter-spacing: 4px;
   color: var(--color-cyan);
 }
-.floorNumber {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(72px, 9vw, 140px);
-  line-height: 0.85;
-  color: var(--color-paper);
-  letter-spacing: -2px;
-}
 .floorYear {
   margin-top: 6px;
+  /* Long ranges ("2012–2020") have to fit the sticky column, the word never wraps. */
+  font-size: clamp(44px, 5.5vw, 88px);
 }
 .floorLine {
   position: absolute;
@@ -726,9 +720,6 @@
     align-items: baseline;
     gap: 16px;
     margin-bottom: 20px;
-  }
-  .floorNumber {
-    font-size: 64px;
   }
   .floorPanel {
     grid-template-columns: 1fr;
